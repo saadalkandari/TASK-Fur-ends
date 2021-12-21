@@ -6,7 +6,7 @@
 const [image, setImage] = useState(pet.image);
 ```
 
-2. Pass it to the image src html tag.
+2. Pass it to the image's `src` tag.
 
 ```javascript
 <img className="image" alt={pet.name} src={image} />
@@ -15,7 +15,7 @@ const [image, setImage] = useState(pet.image);
 3. Add an `onClick` to the button that changes the state from `"pet.image` to `"pet.image2"`
 
 ```javascript
-<button type="button" class="btn btn-info" onClick={() => setImage(pet.image2)}>
+<button type="button" className="btn btn-info" onClick={() => setImage(pet.image2)}>
   Pet
 </button>
 ```
@@ -24,7 +24,7 @@ const [image, setImage] = useState(pet.image);
 
 ### Search Bar
 
-1. in `PetsList`, create a state called `query` and a method called `setQuery`.
+1. In `PetsList`, create a state called `query` and a method called `setQuery`.
 
 ```javascript
 const [query, setQuery] = useState('');
@@ -35,7 +35,7 @@ const [query, setQuery] = useState('');
 ```javascript
 <input
   type="search"
-  class="form-control rounded"
+  className="form-control rounded"
   placeholder="Search"
   aria-label="Search"
   aria-describedby="search-addon"
@@ -71,7 +71,7 @@ const [type, setType] = useState('');
 2. In the select tag of `PetSelector` add an onChange method that calls `setType()` and gives it `event.target.value` as an argument.
 
 ```javascript
-<select class="form-select" onChange={(e) => setType(e.target.value)}>
+<select className="form-select" onChange={(e) => setType(e.target.value)}>
 ```
 
 4. At this point, whatever you select in your selector should appear in the `type` state in `React Dev Tools`.
@@ -106,10 +106,10 @@ export default SearchBar;
 ```javascript
 function SearchBar() {
   return (
-    <div class="input-group rounded">
+    <div className="input-group rounded">
       <input
         type="search"
-        class="form-control rounded"
+        className="form-control rounded"
         placeholder="Search"
         aria-label="Search"
         aria-describedby="search-addon"
@@ -137,10 +137,10 @@ function SearchBar() {
 ```javascript
 function SearchBar(props) {
   return (
-    <div class="input-group rounded">
+    <div className="input-group rounded">
       <input
         type="search"
-        class="form-control rounded"
+        className="form-control rounded"
         placeholder="Search"
         aria-label="Search"
         aria-describedby="search-addon"
@@ -170,7 +170,7 @@ export default Selector;
 ```javascript
 function Selector() {
   return (
-    <select class="form-select" onChange={(e) => setType(e.target.value)}>
+    <select className="form-select" onChange={(e) => setType(e.target.value)}>
       <option value="" selected>
         All
       </option>
@@ -199,7 +199,7 @@ function Selector() {
 ```javascript
 function Selector(props) {
   return (
-    <select class="form-select" onChange={(e) => props.setType(e.target.value)}>
+    <select className="form-select" onChange={(e) => props.setType(e.target.value)}>
       <option value="" selected>
         All
       </option>
