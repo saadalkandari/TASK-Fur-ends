@@ -1,12 +1,21 @@
-import PetItem from './PetItem';
-import { useState } from 'react';
+import PetItem from "./PetItem";
+import { useState } from "react";
 
 export default function PetsList(props) {
-  const pets = props.pets.filter(pet=>pet.name.toLowerCase().includes(query.toLowerCase())).map((pet) => <PetItem key={pet.id} pet={pet} />);
   const [query, setQuery] = useState("");
-  const changeQuery = (event) =>{
+  const [type, setType] = useState("");
+  const pets = props.pets
+    .filter((pet) => pet.type.includes(type))
+    .filter((pet) => pet.name.toLowerCase().includes(query.toLowerCase()))
+    .map((pet) => <PetItem key={pet.id} pet={pet} />);
+
+  const changeQuery = (event) => {
     setQuery(event.target.value);
-  }
+  };
+
+  const changeType = (event) => {
+    setType(event.target.value);
+  };
   return (
     <section id="doctors" class="doctor-section pt-140">
       <div class="container">
@@ -28,7 +37,7 @@ export default function PetsList(props) {
               </div>
               <br />
               Type:
-              <select class="form-select">
+              <select class="form-select" onChange={changeType}>
                 <option value="" selected>
                   All
                 </option>
